@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  user-service:
+    build:
+      context: ./user-service
+    container_name: user-service
+    ports:
+      - "8001:8000"
+    volumes:
+      - ./user-service:/var/www
+    networks:
+      - microservices-network
+
+  notification-service:
+    build:
+      context: ./notification-service
+    container_name: notification-service
+    ports:
+      - "8002:8000"
+    volumes:
+      - ./notification-service:/var/www
+    networks:
+      - microservices-network
+
+  message-service:
+    build:
+      context: ./message-service
+    container_name: message-service
+    ports:
+      - "8003:8000"
+    volumes:
+      - ./message-service:/var/www
+    networks:
+      - microservices-network
+
+  friendship-service:
+    build:
+      context: ./friendship-service
+    container_name: friendship-service
+    ports:
+      - "8004:8000"
+    volumes:
+      - ./friendship-service:/var/www
+    networks:
+      - microservices-network
+
+networks:
+  microservices-network:
+    driver: bridge
