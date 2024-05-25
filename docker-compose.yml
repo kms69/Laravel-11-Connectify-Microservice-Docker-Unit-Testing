@@ -6,45 +6,81 @@ services:
       context: ./user-service
     container_name: user-service
     ports:
-      - "8001:8000"
+      - "8001:80"
     volumes:
-      - ./user-service:/var/www
+      - ./user-service:/var/www/html
     networks:
       - microservices-network
+    environment:
+      - DB_HOST=mysql
+      - DB_DATABASE=user_service_db
+      - DB_USERNAME=root
+      - DB_PASSWORD=root_password
 
   notification-service:
     build:
       context: ./notification-service
     container_name: notification-service
     ports:
-      - "8002:8000"
+      - "8002:80"
     volumes:
-      - ./notification-service:/var/www
+      - ./notification-service:/var/www/html
     networks:
       - microservices-network
+    environment:
+      - DB_HOST=mysql
+      - DB_DATABASE=notification_service_db
+      - DB_USERNAME=root
+      - DB_PASSWORD=root_password
 
   message-service:
     build:
       context: ./message-service
     container_name: message-service
     ports:
-      - "8003:8000"
+      - "8003:80"
     volumes:
-      - ./message-service:/var/www
+      - ./message-service:/var/www/html
     networks:
       - microservices-network
+    environment:
+      - DB_HOST=mysql
+      - DB_DATABASE=message_service_db
+      - DB_USERNAME=root
+      - DB_PASSWORD=root_password
 
   friendship-service:
     build:
       context: ./friendship-service
     container_name: friendship-service
     ports:
-      - "8004:8000"
+      - "8004:80"
     volumes:
-      - ./friendship-service:/var/www
+      - ./friendship-service:/var/www/html
     networks:
       - microservices-network
+    environment:
+      - DB_HOST=mysql
+      - DB_DATABASE=friendship_service_db
+      - DB_USERNAME=root
+      - DB_PASSWORD=root_password
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+    ports:
+      - "3306:3306"
+    networks:
+      - microservices-network
+    volumes:
+      - mysql-data:/var/lib/mysql
 
 networks:
   microservices-network:
     driver: bridge
+
+volumes:
+  mysql-data:
