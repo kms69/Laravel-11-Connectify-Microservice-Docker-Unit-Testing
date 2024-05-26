@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b45e12b0-c546-4ce1-a73d-34ef6a2ead7c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/friendship-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/friendship-service/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/message-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/message-service/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -552,7 +547,7 @@
       <workItem from="1716552431858" duration="1460000" />
       <workItem from="1716553912054" duration="2463000" />
       <workItem from="1716640397889" duration="2908000" />
-      <workItem from="1716726258932" duration="714000" />
+      <workItem from="1716726258932" duration="2020000" />
     </task>
     <servers />
   </component>
