@@ -1,5 +1,5 @@
 # Use the official PHP image as a base image
-FROM php:8.1-apache
+FROM php:8.2-apache
 
 # Set working directory
 WORKDIR /var/www/html
@@ -26,6 +26,10 @@ RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
 
 # Enable Apache mod_rewrite
 RUN a2enmod rewrite
+
+# Update Apache configuration to set DocumentRoot and DirectoryIndex
+RUN sed -i -e 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/000-default.conf
+RUN sed -i 's/DirectoryIndex index.html/DirectoryIndex index.php index.html/g' /etc/apache2/mods-enabled/dir.conf
 
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
